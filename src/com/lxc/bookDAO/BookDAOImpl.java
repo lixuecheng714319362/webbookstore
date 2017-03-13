@@ -9,5 +9,12 @@ public class BookDAOImpl implements BookDAO {
 		// TODO 自动生成的方法存根
 		return null;
 	}
+
+	@Override
+	public BooksInf bookSearchByParams(String bookName, String bookAuthor) {
+		// TODO 自动生成的方法存根
+		
+		return null;
+	}
 	
 }
