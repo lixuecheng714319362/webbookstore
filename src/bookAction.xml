@@ -63,5 +63,5 @@
 		<property name="userDAO" ref="userDAO" />
 	</bean>
 	<tx:annotation-driven transaction-manager="transactionManager" />
-	<!-- <import resource="classpath:userAction.xml"/> -->
+	<import resource="classpath:userAction.xml" />
 </beans>

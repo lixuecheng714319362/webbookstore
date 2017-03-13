@@ -1,11 +1,5 @@
 package com.lxc.userAction;
 
-import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
-
-import org.apache.struts2.interceptor.SessionAware;
-
 import com.lxc.userInf.Users_Inf;
 import com.lxc.userService.LoginService;
 import com.opensymphony.xwork2.Action;
