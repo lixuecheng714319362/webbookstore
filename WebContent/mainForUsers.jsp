@@ -23,9 +23,6 @@
 			  				<td><a href="mainPage.jsp">首页</a></td>
 			  				<td><a href="buyBook.jsp">网上购书</a></td>
 			  				<td><a href="useBookSearch.jsp">书籍检索</a></td>
-			  				<td><a href="login.jsp">用户登录</a></td>
-			  				<td><a href="register.jsp">注册</a></td>
-			  				<td><a href="manage.jsp">后台管理</a></td>
 			  			</td>
 			  		</tr>
 			  	</table>

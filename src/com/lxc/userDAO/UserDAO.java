@@ -11,5 +11,5 @@ public interface UserDAO {
 	
 	void update(Users_Inf users_Inf);
 	
-	void delete(String user_name);
+	int delete(String user_name);
 }

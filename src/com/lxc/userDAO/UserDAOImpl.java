@@ -10,6 +10,7 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
+import com.lxc.hibernateUtils.HibernateUtils;
 import com.lxc.userInf.Users_Inf;
 
 public class UserDAOImpl extends HibernateDaoSupport implements UserDAO {
@@ -22,8 +23,7 @@ public class UserDAOImpl extends HibernateDaoSupport implements UserDAO {
 	public Users_Inf get(String user_name) throws Exception {
 		// TODO Auto-generated method stub
 //		return getHibernateTemplate().get(Users_Inf.class, user_name).getPassword();
-		Configuration configuration = new Configuration().configure();
-		SessionFactory sFactory = configuration.buildSessionFactory();
+		SessionFactory sFactory = HibernateUtils.getSessionFactory();
 		Session session = sFactory.openSession();
 		Transaction tx = session.beginTransaction();
 		List list = session.createQuery("from Users_Inf u where u.user_name= :name")
@@ -42,8 +42,7 @@ public class UserDAOImpl extends HibernateDaoSupport implements UserDAO {
 	public String save(Users_Inf users_Inf) throws Exception {
 		// TODO Auto-generated method stub
 //		return (String) getHibernateTemplate().save(users_Inf);
-		Configuration configuration = new Configuration().configure();
-		SessionFactory sFactory = configuration.buildSessionFactory();
+		SessionFactory sFactory = HibernateUtils.getSessionFactory();
 		Session session = sFactory.openSession();
 		Transaction tx = session.beginTransaction();
 		Users_Inf users_Inf2 = get(users_Inf.getUser_name());
@@ -61,15 +60,26 @@ public class UserDAOImpl extends HibernateDaoSupport implements UserDAO {
 	@Override
 	public void update(Users_Inf users_Inf) {
 		// TODO Auto-generated method stub
-//		getHibernateTemplate().update(users_Inf);
-		
+		SessionFactory sFactory = HibernateUtils.getSessionFactory();
+		Session session = sFactory.openSession();
+		Transaction tx = session.beginTransaction();
+		session.update(users_Inf);
+		tx.commit();
+		session.close();
 	}
 
 	@Override
-	public void delete(String user_name) {
+	public int delete(String user_name) {
 		// TODO Auto-generated method stub
-//		getHibernateTemplate().delete(get(user_name));
-		
+		SessionFactory sFactory = HibernateUtils.getSessionFactory();
+		Session session = sFactory.openSession();
+		Transaction tx = session.beginTransaction();
+		int count = session.createQuery("delete Users_Inf u where u.user_name= :name")
+				.setString("name", user_name)
+				.executeUpdate();
+		tx.commit();
+		session.close();
+		return count;
 	}
 
 }
