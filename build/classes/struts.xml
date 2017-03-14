@@ -21,4 +21,5 @@
 			<result>{1}.jsp</result>
 		</action>
 	</package>
+	<include file="struts2_book_manage.xml"/> 
 </struts>    

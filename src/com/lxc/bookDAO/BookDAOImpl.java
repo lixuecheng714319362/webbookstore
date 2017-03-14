@@ -5,12 +5,12 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
+import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import com.lxc.bookInf.BooksInf;
 import com.lxc.hibernateUtils.HibernateUtils;
 
-public class BookDAOImpl implements BookDAO {
+public class BookDAOImpl  extends HibernateDaoSupport implements BookDAO {
 
 	/**
 	 * 根据书名或作者名其中的一个条件查询书籍

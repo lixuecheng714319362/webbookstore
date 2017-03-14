@@ -39,6 +39,7 @@
 		<property name="mappingResources">
 			<list>
 				<value>com/lxc/userInf/Users_Inf.hbm.xml</value>
+				<value>com/lxc/bookInf/BooksInf.hbm.xml</value>
 			</list>
 		</property>
 	</bean>
@@ -49,7 +50,7 @@
 	</bean>
 	
 	<bean id="userDAO"
-		class="com.lxc.userDAO.UserDAOImpl">
+		class="com.lxc.userDAO.UserDAOImpl" scope="singleton">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 	
@@ -62,5 +63,16 @@
 		class="com.lxc.userService.RegisterServiceImpl">
 		<property name="userDAO" ref="userDAO" />
 	</bean>
+	
+	<bean id="bookDAO"
+		class="com.lxc.bookDAO.BookDAOImpl" scope="singleton">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="bookManageService"
+		class="com.lxc.bookService.BookManageServiceImpl">
+		<property name="bookManageDAO" ref="bookDAO" />
+	</bean>
+	
 	<tx:annotation-driven transaction-manager="transactionManager" />
 </beans>
