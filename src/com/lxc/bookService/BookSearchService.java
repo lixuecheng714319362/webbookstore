@@ -4,6 +4,6 @@ import com.lxc.bookInf.BooksInf;
 
 public interface BookSearchService {
 
-	boolean search(BooksInf booksInf);
+	void search(BooksInf booksInf);
 	
 }

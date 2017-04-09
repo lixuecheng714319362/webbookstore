@@ -20,7 +20,7 @@ public class UserDAOImpl extends HibernateDaoSupport implements UserDAO {
 	 */
 	@SuppressWarnings("rawtypes")
 	@Override
-	public Users_Inf get(String user_name) throws Exception {
+	public Users_Inf get(String user_name) {
 		// TODO Auto-generated method stub
 //		return getHibernateTemplate().get(Users_Inf.class, user_name).getPassword();
 		SessionFactory sFactory = HibernateUtils.getSessionFactory();
@@ -39,7 +39,7 @@ public class UserDAOImpl extends HibernateDaoSupport implements UserDAO {
 	}
 
 	@Override
-	public String save(Users_Inf users_Inf) throws Exception {
+	public String save(Users_Inf users_Inf) {
 		// TODO Auto-generated method stub
 //		return (String) getHibernateTemplate().save(users_Inf);
 		SessionFactory sFactory = HibernateUtils.getSessionFactory();

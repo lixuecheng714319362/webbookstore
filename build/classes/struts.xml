@@ -6,15 +6,30 @@
 	
 	<package name="login" extends="struts-default">
 		<action name="loginPro" class="com.lxc.userAction.LoginAction">
-			<result name="error">error.jsp</result>
+			<result name="error">${request.contextPath}/error.jsp</result>
 			<result name="success">mainForUsers.jsp</result>
 			<result name="admin">mainForAdmin.jsp</result>
 		</action>
 		
 		<action name="registerPro" class="com.lxc.userAction.RegisterAction">
-			<result name="cuo">error.jsp</result>
-			<result name="success">mainForUsers.jsp</result>
+			<result name="cuo">${request.contextPath}/error.jsp</result>
+			<result name="success">/mainForUsers.jsp</result>
 			<result name="none">registerFail.jsp</result>
+		</action>
+		
+		<action name="usersAdd" class="com.lxc.userAction.UsersAddAction">
+			<result name="success">${request.contextPath}/usersManage.jsp</result>
+			<result name="error">/usersManage/usersAddFail.jsp</result>
+		</action>
+		
+		<action name="usersDelete" class="com.lxc.userAction.UsersDeleteAction">
+			<result name="success">${request.contextPath}/usersManage.jsp</result>
+			<result name="error">/usersManage/usersAddFail.jsp</result>
+		</action>
+		
+		<action name="usersPwdEdit" class="com.lxc.userAction.UsersPwdEditAction">
+			<result name="success">${request.contextPath}/mainForUsers.jsp</result>
+			<result name="error">/usersManage/usersAddFail.jsp</result>
 		</action>
 		
 		<action name="*">

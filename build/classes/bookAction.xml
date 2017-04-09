@@ -48,20 +48,19 @@
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 	
-	<bean id="userDAO"
-		class="com.lxc.userDAO.UserDAOImpl">
+	<bean id="bookDAO"
+		class="com.lxc.bookDAO.BookDAOImpl" scope="singleton">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 	
-	<bean id="loginService"
-		class="com.lxc.userService.LoginServiceImpl">
-		<property name="userDAO" ref="userDAO" />
+	<bean id="bookManageService"
+		class="com.lxc.bookService.BookManageServiceImpl">
+		<property name="bookManageDAO" ref="bookDAO" />
 	</bean>
 	
-	<bean id="registerService"
-		class="com.lxc.userService.RegisterServiceImpl">
-		<property name="userDAO" ref="userDAO" />
+	<bean id="bookSearchService"
+		class="com.lxc.bookService.BookSearchServiceImpl">
+		<property name="bookSearchDAO" ref="bookDAO" />
 	</bean>
 	<tx:annotation-driven transaction-manager="transactionManager" />
-	<import resource="classpath:userAction.xml" />
 </beans>

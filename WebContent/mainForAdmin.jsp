@@ -35,7 +35,7 @@
 					<td align="center"><a href="booksManage.jsp">书籍管理</a></td>
 				</tr>
 				<tr>
-					<td align="center"><a href="">用户管理</a></td>
+					<td align="center"><a href="<%=path %>/usersManage/usersManage.jsp">用户管理</a></td>
 				</tr>
 				<tr>
 					<td align="center"><a href="">订单管理</a></td>

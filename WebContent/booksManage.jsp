@@ -25,7 +25,7 @@
 		  	<h3>管理书籍...</h3>
 		</div> 
 		<div style="margin-top:5px;float: right;">
-			用户：<%=username %>，点击<a href="mainForAdmin.jsp">这里</a>返回上一页
+			用户：<%=username %>，点击<a href="<%=path %>/mainForAdmin.jsp">这里</a>返回上一页
 		</div>
 	</center>
 	<div>
@@ -35,10 +35,10 @@
 					<td align="center"><a href="<%=path %>/bookManage/bookAdd.jsp">新增书籍</a></td>
 				</tr>
 				<tr>
-					<td align="center"><a href="">删除书籍</a></td>
+					<td align="center"><a href="<%=path %>/bookManage/bookDelete.jsp">删除书籍</a></td>
 				</tr>
 				<tr>
-					<td align="center"><a href="">修改书籍</a></td>
+					<td align="center"><a href="<%=path %>/bookManage/bookInfoEdit.jsp">修改书籍</a></td>
 				</tr>
 			</table>
 		</form>

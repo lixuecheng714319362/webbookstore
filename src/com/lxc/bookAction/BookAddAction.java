@@ -13,17 +13,17 @@ public class BookAddAction implements Action {
 	public void setBooksInf(BooksInf booksInf) {
 		this.booksInf = booksInf;
 	}
-	public BookManageService bookManageService() {
-		return bookManageService;
-	}
-	public void setBookAddService(BookManageService bookManageService) {
+	public void setBookManageService(BookManageService bookManageService) {
 		this.bookManageService = bookManageService;
 	}
 	@Override
 	public String execute() throws Exception {
 		// TODO 自动生成的方法存根
-		System.out.println(booksInf.getBookAuthor());
-		bookManageService.addBook(booksInf);
-		return SUCCESS;
+		if (bookManageService.addBook(booksInf)) {
+			return SUCCESS;
+		} else {
+			return ERROR;
+		}
+		
 	}
 }

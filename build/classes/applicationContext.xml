@@ -64,15 +64,21 @@
 		<property name="userDAO" ref="userDAO" />
 	</bean>
 	
-	<bean id="bookDAO"
-		class="com.lxc.bookDAO.BookDAOImpl" scope="singleton">
-		<property name="sessionFactory" ref="sessionFactory" />
+	<bean id="usersAddService"
+		class="com.lxc.userService.UsersAddServiceImpl">
+		<property name="userDAO" ref="userDAO" />
 	</bean>
 	
-	<bean id="bookManageService"
-		class="com.lxc.bookService.BookManageServiceImpl">
-		<property name="bookManageDAO" ref="bookDAO" />
+	<bean id="usersDeleteService"
+		class="com.lxc.userService.UsersDeleteServiceImpl">
+		<property name="userDAO" ref="userDAO" />
+	</bean>
+	
+	<bean id="usersPwdEditService"
+		class="com.lxc.userService.UsersPwdEditServiceImpl">
+		<property name="userDAO" ref="userDAO" />
 	</bean>
 	
 	<tx:annotation-driven transaction-manager="transactionManager" />
+	<import resource="classpath:bookAction.xml" />
 </beans>

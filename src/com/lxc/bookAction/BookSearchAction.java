@@ -22,11 +22,7 @@ public class BookSearchAction implements Action{
 	@Override
 	public String execute() throws Exception {
 		// TODO 自动生成的方法存根
-		if (bookSearchService.search(booksInf)) {
-			
-		} else {
-			
-		}
-		return null;
+		bookSearchService.search(booksInf);
+		return SUCCESS;
 	}
 }

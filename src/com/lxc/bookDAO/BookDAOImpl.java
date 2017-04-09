@@ -23,9 +23,9 @@ public class BookDAOImpl  extends HibernateDaoSupport implements BookDAO {
 		Transaction tx = session.beginTransaction();
 		String sql = "";
 		if ("name".equals(key)) {
-			sql = "from BooksInf bi where bi.book_name= :tmp";
+			sql = "from BooksInf bi where bi.bookName= :tmp";
 		} else {
-			sql = "from BooksInf bi where bi.book_author= :tmp";
+			sql = "from BooksInf bi where bi.bookAuthor= :tmp";
 		}
 		List list = session.createQuery(sql)
 				.setString("tmp", value)
@@ -45,10 +45,13 @@ public class BookDAOImpl  extends HibernateDaoSupport implements BookDAO {
 		SessionFactory sf = HibernateUtils.getSessionFactory();
 		Session session = sf.openSession();
 		Transaction tx = session.beginTransaction();
-		List list = session.createQuery("from BooksInf bi where bi.book_name= :name and bi.book_author= :author")
+		List list = session.createQuery("from BooksInf bi where bi.bookName= :name and bi.bookAuthor= :author")
 				.setString("name", bookName)
 				.setString("author", bookAuthor)
 				.list();
+		if (list.size() == 0) {
+			return null;
+		}
 		BooksInf booksInf = (BooksInf) list.get(0);
 		tx.commit();
 		session.close();
@@ -64,7 +67,7 @@ public class BookDAOImpl  extends HibernateDaoSupport implements BookDAO {
 		SessionFactory sessionFactory = HibernateUtils.getSessionFactory();
 		Session session = sessionFactory.openSession();
 		Transaction tx = session.beginTransaction();
-		int count = session.createQuery("delete BooksInf bi where bi.book_name= :name and bi.book_author= :author")
+		int count = session.createQuery("delete BooksInf bi where bi.bookName= :name and bi.bookAuthor= :author")
 				.setString("name", bookName)
 				.setString("author", bookAuthor)
 				.executeUpdate();

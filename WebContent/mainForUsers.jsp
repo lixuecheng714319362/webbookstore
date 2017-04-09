@@ -23,13 +23,14 @@
 			  				<td><a href="mainPage.jsp">首页</a></td>
 			  				<td><a href="buyBook.jsp">网上购书</a></td>
 			  				<td><a href="useBookSearch.jsp">书籍检索</a></td>
+			  				<td><a href="<%=path %>/usersManage/usersPwdEdit.jsp">修改密码</a></td>
 			  			</td>
 			  		</tr>
 			  	</table>
 		  	</s:form>
 		</div>
 		<div style="margin-top:5px;float: right;">
-			用户：<%=username %>，<a href="mainPage.jsp">退出</a>
+			用户：<%=username %>，<a href="<%=path %>/mainPage.jsp">注销</a>
 		</div>
 		<div style="margin-top: 30px;"> 	
 		  	<h3>会员</h3>

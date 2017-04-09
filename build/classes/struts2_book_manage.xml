@@ -6,7 +6,22 @@
 	
 	<package name="bookManage" extends="struts-default">
 		<action name="bookAdd" class="com.lxc.bookAction.BookAddAction">
-			<result name="success">mainPage.jsp</result>
+			<result name="success">/booksManage.jsp</result>
+			<result name="error">bookAddFail.jsp</result>
+		</action>
+		
+		<action name="bookDelete" class="com.lxc.bookAction.BookDeleteAction">
+			<result name="success">/booksManage.jsp</result>
+			<result name="error">bookDeleteFail.jsp</result>
+		</action>
+		
+		<action name="bookSearch" class="com.lxc.bookAction.BookSearchAction">
+			<result name="success">bookSearch.jsp</result>
+		</action>
+		
+		<action name="bookEdit" class="com.lxc.bookAction.BookEditAction">
+			<result name="success">bookEdit.jsp</result>
+			<result name="error">bookEditFail.jsp</result>
 		</action>
 		
 		<action name="*">
